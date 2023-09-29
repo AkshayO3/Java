@@ -44,7 +44,7 @@ public class Assign2 {
 
         System.out.println("Enter the year");
         int year = sc.nextInt();
-        if (year % 4 == 0 && year % 400 == 0)
+        if (year % 4 == 0)      // There are other conditions,but this is the most simplistic
             System.out.println("Leap year");
         else
             System.out.println("Not a leap year");
