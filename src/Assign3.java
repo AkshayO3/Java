@@ -16,13 +16,20 @@ public class Assign3 {
 //System.out.println("Sum of odd numbers is "+sumo);
 
 
+//        System.out.println("Enter the number");
+//        int n = sc.nextInt();
+//        int factorial = 1;
+//        for(int i=1;i<=n;i++){
+//            factorial*=i;
+//        }
+//        System.out.println("Factorial of "+n+" is "+factorial);
+
+
         System.out.println("Enter the number");
         int n = sc.nextInt();
-        int factorial = 1;
-        for(int i=1;i<=n;i++){
-            factorial*=i;
+        for(int i=1;i<=10;i++){
+            System.out.println(n+" x "+i+" = "+n*i);
         }
-        System.out.println("Factorial of "+n+" is "+factorial);
 
 
     }
