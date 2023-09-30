@@ -74,12 +74,26 @@ public class Assign4 {
 
 
 // Solid Rhombus
-        for(int i=1;i<6;i++){
-            for(int j=5-i;j>0;j--){
+//        for(int i=1;i<6;i++){
+//            for(int j=5-i;j>0;j--){
+//                System.out.print(" ");
+//            }
+//            for(int j=1;j<=5;j++){
+//                System.out.print("*");
+//            }
+//            System.out.println();
+//        }
+
+
+// Hollow Rhombus
+        for(int i=1;i<6;i++) {
+            for (int j = 5 - i; j > 0; j--) {
                 System.out.print(" ");
             }
-            for(int j=1;j<=5;j++){
-                System.out.print("*");
+            for (int j = 1; j <= 5; j++) {      //This is an independent block
+                if(i==1||i==5||j==1||j==5)
+                    System.out.print("*");
+                else System.out.print(" ");
             }
             System.out.println();
         }
