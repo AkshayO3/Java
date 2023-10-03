@@ -18,6 +18,13 @@ public class Assign5 {
         else
             System.out.println("Not palindrome.");
     }
+    public static void math(int a,int b){
+        System.out.println("Max--> "+Math.max(a,b));
+        System.out.println("Min--> "+Math.min(a,b));
+        System.out.println("Square root--> "+Math.sqrt(b));
+        System.out.println("Power--> "+Math.pow(a,b));
+        System.out.println("Absolute--> "+Math.abs(a));
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -28,5 +35,6 @@ public class Assign5 {
         System.out.println("Average is "+avg(a,b,c));
         System.out.println(isEven(3));
         palindrome(5765);
+        math(-3,6);
     }
 }
