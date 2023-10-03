@@ -25,6 +25,14 @@ public class Assign5 {
         System.out.println("Power--> "+Math.pow(a,b));
         System.out.println("Absolute--> "+Math.abs(a));
     }
+    public static int sum(int a){
+        int sum=0;
+        while(a>0){
+            sum+=a%10;
+            a/=10;
+        }
+        return sum;
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -36,5 +44,6 @@ public class Assign5 {
         System.out.println(isEven(3));
         palindrome(5765);
         math(-3,6);
+        System.out.println("Sum of digits of 16784533 is "+sum(16784533));
     }
 }
