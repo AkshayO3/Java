@@ -22,6 +22,12 @@ public class Assign6 {
         }
         return arr;
     }
+    public static void pairs(int[] arr){
+        for(int i=0;i<arr.length;i++)
+            for(int j=i;j<arr.length;j++)
+                if(arr[i]!=arr[j])
+                    System.out.print("("+arr[i]+","+arr[j]+")\t");
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -56,9 +62,14 @@ public class Assign6 {
 
 
 // Reversing an array
-        int[] arr = {1,2,3,4,5,6,7,8,9,10};
-        System.out.println("The reversed array is ");
-        for(int j:reverse(arr))
-            System.out.print(j+" ");
+//        int[] arr = {1,2,3,4,5,6,7,8,9,10};
+//        System.out.println("The reversed array is ");
+//        for(int j:reverse(arr))
+//            System.out.print(j+" ");
+
+
+// Pairs in an array(non-repetitive)
+        int[] arr={2,4,6,8,10};
+        pairs(arr);
     }
 }
