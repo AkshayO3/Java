@@ -37,6 +37,20 @@ public class Assign6 {
             System.out.println();
         }
     }
+    public static void maxSumSub(int[] arr){
+        int max = 0,sum=0;
+        for(int i=0;i<arr.length;i++) {
+            for (int j = i + 1; j < arr.length + 1; j++) {
+                for (int k = i; k < j; k++) {
+                    sum += arr[k];
+                }
+                if(max<sum)
+                    max = sum;
+                sum=0;
+            }
+        }
+        System.out.println("Max sum of a subarray is "+max);
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -83,7 +97,12 @@ public class Assign6 {
 
 
 // Printing the sub-arrays of an array
-        int[] arr={2,4,6,8,10};
-        subArrays(arr);
+//        int[] arr={2,4,6,8,10};
+//        subArrays(arr);
+
+
+// Printing the maximum sum in all of the subarrays
+        int[] arr={2,4,-6,-8,-10};
+        maxSumSub(arr);
     }
 }
