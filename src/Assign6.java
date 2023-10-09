@@ -37,8 +37,8 @@ public class Assign6 {
             System.out.println();
         }
     }
-    public static void maxSumSub(int[] arr){
-        int max = 0,sum=0;
+    public static void maxSumSub(int[] arr){    //Time complexity of n^3 [Brute Force]
+        int max = Integer.MIN_VALUE,sum=0;
         for(int i=0;i<arr.length;i++) {
             for (int j = i + 1; j < arr.length + 1; j++) {
                 for (int k = i; k < j; k++) {
@@ -51,6 +51,23 @@ public class Assign6 {
         }
         System.out.println("Max sum of a subarray is "+max);
     }
+    // A better approach would be to create a prefix array that holds teh sum of the elements upto that index.
+    public static void optimisedSumMax(int[] arr) {
+        int max = Integer.MIN_VALUE;
+        int[] pre = new int[arr.length];
+        pre[0] = arr[0];
+        for (int i = 1; i < arr.length; i++)
+            pre[i] = pre[i - 1] + arr[i];
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i; j < arr.length; j++) {
+                int sum = i == 0 ? pre[j] : pre[j] - pre[i - 1];
+                if (max < sum)
+                    max = sum;
+            }
+        }
+        System.out.println("Max of the sub-arrays: " + max);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -101,8 +118,9 @@ public class Assign6 {
 //        subArrays(arr);
 
 
-// Printing the maximum sum in all of the subarrays
+// Printing the maximum sum in all the sub-arrays
         int[] arr={2,4,-6,-8,-10};
-        maxSumSub(arr);
+//        maxSumSub(arr);
+        optimisedSumMax(arr);
     }
 }
