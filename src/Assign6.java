@@ -51,7 +51,8 @@ public class Assign6 {
         }
         System.out.println("Max sum of a subarray is "+max);
     }
-    // A better approach would be to create a prefix array that holds teh sum of the elements upto that index.
+    // A better approach would be to create a prefix array that holds teh sum of the elements upto that index.Reduces
+    // the order from n^3 to n^2.
     public static void optimisedSumMax(int[] arr) {
         int max = Integer.MIN_VALUE;
         int[] pre = new int[arr.length];
@@ -67,7 +68,17 @@ public class Assign6 {
         }
         System.out.println("Max of the sub-arrays: " + max);
     }
-
+    //If the overall sum,at any point in time becomes negative,it's reinitialized to 0. The order is reduced to n.
+    public static void kadaneSumMax(int[] arr){
+        int max = Integer.MIN_VALUE,sum=0;
+        for (int j : arr) {
+            sum += j;
+            if (sum < 0)
+                sum = 0;
+            max = Math.max(sum, max);
+        }
+        System.out.println("Max of the sub-arrays: "+max);
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -119,8 +130,8 @@ public class Assign6 {
 
 
 // Printing the maximum sum in all the sub-arrays
-        int[] arr={2,4,-6,-8,-10};
+        int[] arr={2,4,6,8,10};
 //        maxSumSub(arr);
-        optimisedSumMax(arr);
+        kadaneSumMax(arr);
     }
 }
