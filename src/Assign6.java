@@ -102,6 +102,16 @@ public class Assign6 {
         }
         System.out.println("Total water trapped in the system is: "+water);
     }
+    public static void maxProfit(int[] price){
+        int maxProfit=0;
+        int[] cp = new int[price.length];
+        cp[0]=price[0];
+        for(int i=1;i<price.length;i++)
+            cp[i]=Math.min(cp[i-1],price[i]);
+        for(int i=0;i<price.length;i++)
+            maxProfit = Math.max(price[i] - cp[i], maxProfit);
+        System.out.println("Max profit that could be made is "+maxProfit);
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -154,9 +164,10 @@ public class Assign6 {
 
 
 // Printing the maximum sum in all the sub-arrays
-        int[] arr={10,4,6,8,10};
+        int[] arr={7,1,5,3,6,4};
 ////        maxSumSub(arr);
 //        kadaneSumMax(arr);
-        trapWater(arr);
+//        trapWater(arr);
+        maxProfit(arr);
     }
 }
