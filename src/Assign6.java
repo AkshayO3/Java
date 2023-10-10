@@ -79,6 +79,30 @@ public class Assign6 {
         }
         System.out.println("Max of the sub-arrays: "+max);
     }
+
+    public static void trapWater(int[] arr){
+        if(arr.length<2) {
+            System.out.println("No water trapped.");
+            return;
+        }
+        int water=0;    //total water level
+    /* The general approach is to calculate the left and right boundaries first,then iterate through the array.It's
+       a fact that calculating bounds inside the only iteration seems more concise,but leads to the time complexity
+       of n^2,whereas calculating the boundaries beforehand reduces the time complexity to n.*/
+        int[] leftBound = new int[arr.length];
+        int[] rightBound = new int[arr.length];
+        leftBound[0]=arr[0];rightBound[arr.length-1]=arr[arr.length-1];
+        for(int i=1;i<arr.length;i++)
+            leftBound[i]=Math.max(leftBound[i-1],arr[i]);
+        for(int i=arr.length-2;i>=0;i--)
+            rightBound[i]=Math.max(rightBound[i+1],arr[i]);
+        for(int i=0;i<arr.length;i++) {
+            int height = Math.min(leftBound[i], rightBound[i]);
+            water+=Math.max(height-arr[i],0);   //0 if the result turns out negative.
+        }
+        System.out.println("Total water trapped in the system is: "+water);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -130,8 +154,9 @@ public class Assign6 {
 
 
 // Printing the maximum sum in all the sub-arrays
-        int[] arr={2,4,6,8,10};
-//        maxSumSub(arr);
-        kadaneSumMax(arr);
+        int[] arr={10,4,6,8,10};
+////        maxSumSub(arr);
+//        kadaneSumMax(arr);
+        trapWater(arr);
     }
 }
