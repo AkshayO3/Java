@@ -113,11 +113,20 @@ public class Assign6 {
         System.out.println("Max profit that could be made is "+maxProfit);
     }
     public static boolean findDuplicate(int[] arr){
-        for(int i=0;i<arr.length;i++)
+        for(int i=0;i<arr.length;i++)       //You could use hashsets for O(n)
             for(int j=i+1;j<arr.length;j++)
                 if(arr[i]==arr[j])
                     return true;
         return false;
+    }
+
+    public static void triplets(int[] arr){
+        for(int i=0;i<arr.length;i++)
+            for(int j=i+1;j<arr.length;j++)
+                for(int k=j+1;k<arr.length;k++)
+                    if(arr[i]+arr[j]+arr[k]==0 && arr[i]!=arr[j] && arr[j]!=arr[k] && arr[i]!=arr[k])
+                        System.out.print("["+arr[i]+","+arr[j]+","+arr[k]+"]  ");
+
     }
 
     public static void main(String[] args) {
@@ -176,6 +185,7 @@ public class Assign6 {
 //        kadaneSumMax(arr);
 //        trapWater(arr);
 //        maxProfit(arr);
-        System.out.println(findDuplicate(arr));
+//        System.out.println(findDuplicate(arr));
+        triplets(new int[]{1, 2, 3,-4,-3,0});
     }
 }
