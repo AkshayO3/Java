@@ -66,6 +66,21 @@ public class Matrix {
         return 0;
     }
 
+    // Transpose of a matrix
+    public static void transpose(int[][] matrix){
+        int rows=matrix.length;
+        int columns = matrix[0].length;
+        int[][] tMatrix = new int[columns][rows];
+        for(int i=0;i<rows;i++)
+            for(int j=0;j<columns;j++)
+                tMatrix[j][i]=matrix[i][j];
+        for(int i=0;i<columns;i++) {
+            for (int j = 0; j < rows; j++)
+                System.out.print(tMatrix[i][j] + " ");
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 //        int[][] matrix = new int[3][3]; //Creating a 3X3 matrix,indexing starts from 0 usually traversed from L->R
@@ -83,5 +98,6 @@ public class Matrix {
         printSpiral(matrix);
         System.out.println("Sum of diagonal elements "+diagonalSum(matrix));
         System.out.println(stairSearch(matrix,32));
+        transpose(matrix);
     }
 }
