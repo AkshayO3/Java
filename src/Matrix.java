@@ -1,7 +1,7 @@
 import java.util.*;
 public class Matrix {
 
-    /* Spiral Matrix- A program that prints the elements of the matrix in a spiral order outwards to inwards. The
+    /* Spiral Matrix- A program that prints the elements of the matrix in a spiral order outwards --> inwards. The
                       general approach is to shrink the square/rectangle until everything is printed,*/
     public static void printSpiral(int[][] matrix){
         int startingRow=0;
@@ -43,7 +43,28 @@ public class Matrix {
 
     }
 
-
+/* Staircase Searching: This kind of searching is performed in a sorted 2D array,which is sorted both row and column
+                        wise. The general approach is to start from the top right corner and traverse the matrix
+                        if the element is greater than the target move left,if the element is smaller than the target
+                        move down. This is done until the target is found or the matrix is exhausted.
+                        Also,the bottom left corner can be used as the starting point.If the element is greater than
+                        the target move up,if the element is smaller than the target move right.    */
+    public static int stairSearch(int[][] matrix,int key){
+        int rows = matrix.length;
+        int columns = matrix[0].length;
+        int upperRight;
+        int i=0,j=columns-1;
+        while(i<rows && j>=0){
+            upperRight=matrix[i][j];    // The condition cannot be at bottom as it would lead to conflict and try
+            if(key>upperRight)          // updating to an index which does not exist.
+                i++;
+            else if(key<upperRight)
+                j--;
+            else
+                return 1;
+        }
+        return 0;
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -58,8 +79,9 @@ public class Matrix {
 //                System.out.print(matrix[i][j]+" ");
 //            System.out.println();
 //    }
-        int[][] matrix = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+        int[][] matrix = {{10,20,30,40},{15,25,35,45},{27,29,37,48},{32,33,39,50}};
         printSpiral(matrix);
         System.out.println("Sum of diagonal elements "+diagonalSum(matrix));
+        System.out.println(stairSearch(matrix,32));
     }
 }
