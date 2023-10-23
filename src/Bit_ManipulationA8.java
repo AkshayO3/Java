@@ -74,7 +74,12 @@ public class Bit_ManipulationA8 {
         return ans;
     }
 
-
+    public static void swap(int a,int b){
+        a=a^b;
+        b=a^b;
+        a=a^b;
+        System.out.println(a+" "+b);
+    }
 
     public static void main(String[] args) {
         // AND Operation --> & (Performs & operations and returns the results in decimal)
@@ -113,5 +118,6 @@ public class Bit_ManipulationA8 {
         checkPowerOfTwo(22);
         System.out.println(checkSetBits(35));
         System.out.println(fastExp(3,5));
+        swap(2,3);
     }
 }
