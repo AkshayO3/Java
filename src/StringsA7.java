@@ -1,5 +1,5 @@
 import java.util.*;
-public class Strings {
+public class StringsA7 {
     /* Strings are IMMUTABLE. Interning is a process of storing the strings in a pool of strings.
        Strings are stored in a pool of strings and are referenced to the same object if the value is same.
        A drawback of this is that if a string is mutated, a new object is created and the reference is changed.
