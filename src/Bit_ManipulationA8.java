@@ -81,6 +81,16 @@ public class Bit_ManipulationA8 {
         System.out.println(a+" "+b);
     }
 
+    public static void add1(int n){
+        n-=~0;
+        System.out.println(n);
+    }
+
+    public static void upperToLower(){  //Only prints the lowercase letters
+        for(char A='A';A<='Z';A++)
+            System.out.print((char)(A | ' ')+" ");
+    }
+
     public static void main(String[] args) {
         // AND Operation --> & (Performs & operations and returns the results in decimal)
         System.out.println(5&6);    //Returns 4[100 in Binary]
@@ -119,5 +129,7 @@ public class Bit_ManipulationA8 {
         System.out.println(checkSetBits(35));
         System.out.println(fastExp(3,5));
         swap(2,3);
+        add1(4352);
+        upperToLower();
     }
 }
