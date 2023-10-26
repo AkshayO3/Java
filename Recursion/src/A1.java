@@ -30,9 +30,39 @@ public class A1 {
         numToString(n/10,str);
     }
 
+    public static int stringLength(String str){
+        if(str.isEmpty())
+            return 0;
+        return stringLength(str.substring(1))+1;
+    }
+
+    public static int contiguousSub(String str,int i,int j,int n){
+        if(n==1)
+            return 1;
+        if(n<=0)
+            return 0;
+        int res = contiguousSub(str,i+1,j,n-1)+contiguousSub(str,i,j-1,n-1)-contiguousSub(str,i+1,j-1,n-2);
+        if(str.charAt(i)==str.charAt(j))
+            res++;
+        return res;
+    }
+
+    public static void TOH(int n,char a,char b,char c){
+        if(n>0) {
+            TOH(n - 1, a, c, b);
+            System.out.println(a + " to " + c);
+            TOH(n - 1, b, a, c);
+        }
+    }
+
     public static void main(String[] args) {
         int[] arr={1,6,9,2,2,2,3,4,2};
         printIndices(arr,2,0);
         numToString(198012,"");
+        System.out.println(stringLength("Akshay"));
+        String str = "Akshay";
+        int n = str.length();
+        System.out.println(contiguousSub(str,0,n-1,n));
+        TOH(3,'A','B','C');
     }
 }
