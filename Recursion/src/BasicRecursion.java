@@ -10,20 +10,20 @@ Recursion is a method of solving problems that involves breaking a problem down 
 
 public class BasicRecursion {
     public static void printDecreasing(int n){
-        System.out.print(n+" ");
-        if(n==1)    // Base Case
+        if(n==0)
             return;
+        System.out.print(n+" ");
         printDecreasing(n-1);
     }
 
     public static void printIncreasing(int n){
-        if(n==1)
+        if(n==0)
             return;
         printIncreasing(n-1);
         System.out.print(n+" ");
     }
 
-    public static int factorial(int n){
+    public static int factorial(int n){ //Only calculates withing the limits of int,use BigInteger otherwise.
         if(n==0)
             return 1;
         return n*factorial(n-1);
@@ -32,37 +32,37 @@ public class BasicRecursion {
     public static int sumOfNatural(int n){
         if(n==0)
             return 0;
-        return n + sumOfNatural(n-1);
+        return n+sumOfNatural(n-1);
     }
 
-    public static int fibonacciTerm(int n){ //Getting the Nth fibonacci term
-        if(n==0)        // The terms start from 0 and not 1.
+    public static int fibonacciTerm(int n){
+        if(n==0)
             return 0;
         if(n==1)
             return 1;
         return fibonacciTerm(n-1)+fibonacciTerm(n-2);
     }
 
-    public static boolean checkSort(int[] n,int i){
-        if(i==n.length-1)
+    public static boolean checkSort(int[] arr,int n){
+        if(n==arr.length-1) //The order of the statement matters,especially on the boundaries.
             return true;
-        if(n[i]>n[i+1])
+        if(arr[n]>arr[n+1])
             return false;
-        return checkSort(n,i+1);
+        return checkSort(arr,n+1);
     }
 
-    public static int firstOccurence(int[] n,int key,int i){
-        if(i==n.length-1)
+    public static int firstOccurence(int[] arr,int key,int i){
+        if(i==arr.length-1)
             return -1;
-        if(n[i]==key)
+        if(arr[i]==key)
             return i;
-        return firstOccurence(n,key,i+1);
+        return firstOccurence(arr,key,i+1);
     }
 
     public static int lastOccurence(int[] n,int key,int i){
         if(i==n.length-1)
             return -1;
-        int isFound = lastOccurence(n,key,i+1);
+        int isFound = lastOccurence(n,key,i+1); //The variable is formed to check if the key is found after.
         if(isFound == -1 && n[i]==key)
             return i;
         return isFound;
@@ -86,10 +86,10 @@ public class BasicRecursion {
     public static void main(String[] args) {
         printDecreasing(4);
         printIncreasing(4);
-        System.out.println(factorial(5));
-        System.out.println(sumOfNatural(10));
-        System.out.println(fibonacciTerm(22));
-        int[] arr = {2,4,3,4,2,3};
+        System.out.println(factorial(13));
+        System.out.println(sumOfNatural(13245));
+        System.out.println(fibonacciTerm(23));
+        int[] arr = {2,3,4,4,3,2};
         System.out.println(checkSort(arr,0));
         System.out.println(firstOccurence(arr,4,0));
         System.out.println(lastOccurence(arr,2,0));
