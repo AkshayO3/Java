@@ -26,7 +26,7 @@ public class MergeSort {
             arr[i]=temp[k];
     }
     public static void mergesort(int[] arr,int si,int ei){
-        if(si>=ei)
+        if(si>=ei)  //Base case(when the array has only one element)
             return;
         int mid = si +(ei-si)/2;    //This formula prevents the addition of large numbers in case of a big array
         mergesort(arr,si,mid);
